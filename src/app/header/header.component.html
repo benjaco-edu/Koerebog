@@ -1,0 +1,8 @@
+<md-toolbar>
+    <span>Kørebog</span>
+
+    <span class="example-spacer"></span>
+
+    <div *ngIf="(auth.af.auth|async)" (click)="logout()">Logout</div>
+
+</md-toolbar>

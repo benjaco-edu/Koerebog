@@ -1,0 +1,23 @@
+<div>
+    <div style="background: #00bcd4">
+        <div class="wrapper">
+
+            <md-input-container>
+                <input mdInput type="text" placeholder="Fra" id="dir_fra">
+            </md-input-container>
+            <md-input-container>
+                <input mdInput type="text" placeholder="Til" id="dir_til">
+            </md-input-container>
+            <div>
+                <button md-button (click)="ok()">Ok</button>
+                <button md-button (click)="fortryd()">Fortryd</button>
+
+                {{km}} Km
+
+            </div>
+
+        </div>
+    </div>
+    <div id="googleMap" style="width:100%;height:380px;"></div>
+</div>
+

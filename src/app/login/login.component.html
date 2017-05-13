@@ -1,0 +1,29 @@
+<div class="wrapper">
+    <h2 *ngIf="!opretBrugerToggle">Login</h2>
+    <h2 *ngIf="opretBrugerToggle">Opret bruger</h2>
+    <div>
+        <md-input-container>
+            <input mdInput type="email" placeholder="Email" [(ngModel)]="email">
+        </md-input-container>
+    </div>
+    <div>
+        <md-input-container>
+            <input mdInput type="password" placeholder="Password" [(ngModel)]="password">
+        </md-input-container>
+    </div>
+    <div>
+        <md-input-container *ngIf="opretBrugerToggle">
+            <input mdInput type="password" placeholder="Gentag password" [(ngModel)]="gentag_password">
+        </md-input-container>
+    </div>
+
+
+    <button md-button *ngIf="!opretBrugerToggle" (click)="login()">Login</button>
+    <button md-button *ngIf="opretBrugerToggle" (click)="opretBruger()">Opret bruger</button>
+
+    <br><br>
+
+    <button md-button *ngIf="opretBrugerToggle" (click)="switchFunctions()">Login</button>
+    <button md-button *ngIf="!opretBrugerToggle" (click)="switchFunctions()">Opret bruger</button>
+
+</div>

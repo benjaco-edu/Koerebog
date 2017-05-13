@@ -1,0 +1,43 @@
+<div *ngIf="!vis_kort">
+
+    <div style="background: #00bcd4">
+        <div class="wrapper">
+            <div style="float:left; margin-right:20px;">
+
+                <div>
+                    <md-input-container>
+                        <input mdInput type="number" placeholder="Km" [(ngModel)]="km">
+                    </md-input-container>
+                </div>
+
+                <button md-button (click)="gem()">Gem</button>
+                <button md-button (click)="vis_kort = true">Kort</button>
+            </div>
+            <div style="float:left; ">
+                <div>Km i alt</div>
+                <div style="font-size: 2em;  font-weight: bold">{{ km_i_alt }}</div>
+                <button md-button (click)="clear()">Nulstil</button>
+            </div>
+
+            <div style="clear: both"></div>
+        </div>
+    </div>
+
+
+    <div class="wrapper">
+
+        <div>
+            <div *ngFor="let item of koersler | async" style="border-bottom: 1px solid #dddddd; margin-bottom: 15px;">
+                <div style="font-size: 2.5em; font-weight: bold">{{item.km}} km</div>
+                <div style="color: #dddddd">{{ formatDate(item.date) }}</div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div *ngIf="vis_kort">
+    <app-dir-map (close)="vis_kort = false"
+                 (selected-range)="km = $event; vis_kort = false"></app-dir-map>
+</div>
